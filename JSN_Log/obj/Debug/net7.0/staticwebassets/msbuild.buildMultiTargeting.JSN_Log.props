@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\JSN_Log.props" />
+</Project>

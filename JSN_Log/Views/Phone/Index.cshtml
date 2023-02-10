@@ -1,0 +1,90 @@
+﻿@model IEnumerable<JSN_Log.Models.Phone>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Phones</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+        </tr>
+    </thead>
+    <tbody id="ajax-filler">
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+        }
+    </tbody>
+
+
+</table>
+
+@*<script src="~/js/JSN_Demo.js"></script>*@
+
+<script>
+    const tbody = document.getElementById("ajax-filler");
+
+    window.onload = () => {
+        JL("Executing Index...").info("Index action is loading, getting list of datas.");
+        //JL("jsLogger").debug("debug client log message");
+        //JL("jsLogger").warn({ msg: 'warn client log message - logging object', x: 5, y: 88 });
+        //JL("jsLogger").error(function () { return "error client log message - returned by function"; });
+        //JL("jsLogger").fatal("fatal client log message");
+
+        //$.ajax({
+        //    type: "GET",
+        //    url: "http://localhost:5109/Phone/GetAll",
+        //    success: function(data) {
+        //        for(let i=0;i<data.length;i++){
+        //            let row = 
+        //            `<tr>
+        //                <td>
+        //                    ${data[i].id}
+        //                </td>
+        //                <td>
+        //                    ${data[i].brand}
+        //                </td>
+        //                <td>
+        //                    ${data[i].model}
+        //                </td>
+        //            </tr>`;
+
+        //            tbody.innerHTML += row;
+        //        }
+        //    }
+        //})
+        //.done( function(data, textStatus) {
+        //    JL("Get Request").info("Sending Get request done succesfully!");
+        //})
+        //.fail( function(data, textStatus) {
+        //    JL("Get Request").fatal("Sending Get request done with failures!")
+        //})
+
+    }
+
+</script>
